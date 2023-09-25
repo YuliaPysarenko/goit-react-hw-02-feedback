@@ -20,7 +20,7 @@ FeedbackOptions.propType = {
         PropTypes.objectOf({
      name:PropTypes.string.isRequired,
         })),
-    onLeaveFeedback: PropTypes.funk,
+    // onLeaveFeedback: PropTypes.funk,
 }
 
 
