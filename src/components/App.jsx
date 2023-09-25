@@ -7,8 +7,6 @@ import buttonJson from "../json/button.json"
 import Notification from "./Notification";
 
 class App extends Component {
-   // static defaultProps = {};
-  // static propTypes = {};
   state = {
     good: 0,
     neutral: 0,
