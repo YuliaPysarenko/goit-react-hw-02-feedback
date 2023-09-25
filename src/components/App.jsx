@@ -3,8 +3,9 @@ import  React, { Component } from "react";
 import Statistics from "./Statistics";
 import FeedbackOptions from "./FeedbackOptions";
 import Section from "./Section";
-import buttonJson from "../json/button.json"
 import Notification from "./Notification";
+import buttonJson from "../json/button.json"
+
 
 class App extends Component {
   state = {
