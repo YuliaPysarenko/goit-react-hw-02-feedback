@@ -1,5 +1,4 @@
 import React from "react";
-import Notification from 'notiflix';
 import PropTypes from 'prop-types';
 
 
