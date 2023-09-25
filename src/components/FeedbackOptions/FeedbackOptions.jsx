@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const FeedbackOptions = ({options, onLeaveFeedback}) => {
     return <section>
-        {/* <h1>Please leavel feedback</h1> */}
+      
         {options.map(({ name }) => {
             return <button key={name}
                 type="button"
