@@ -114,13 +114,6 @@ class App extends Component {
         total={countTotalFeedback}
         positivePercentage={countPositiveFeedbackPercentage} />
             )}
-      
-        {/* <Statistics
-        good={good}
-        neutral={neutral}
-        bad={bad}
-        total={countTotalFeedback}
-          positivePercentage={countPositiveFeedbackPercentage} /> */}
         
       </Section>
       
