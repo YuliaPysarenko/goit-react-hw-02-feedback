@@ -4,7 +4,7 @@ import Statistics from "./Statistics";
 import FeedbackOptions from "./FeedbackOptions";
 import Section from "./Section";
 import buttonJson from "../json/button.json"
-
+import Notification from "./Notification";
 
 class App extends Component {
    // static defaultProps = {};
@@ -33,39 +33,34 @@ class App extends Component {
     }))
   }
 
-  // buttonClick = () => {
-  //   this.setState(preClick => ({
-  //     good: preClick.good + 1,
-  //   }))
-  //   this.setState(preClick => ({
-  //     neutral: preClick.neutral + 1,
-  //   }))
-  //   this.setState(preClick => ({
-  //     bad: preClick.bad + 1,
-  //   }))
-  // }
+  buttonClick = (e) => {
+    const targetName = e.target.name
 
-  buttonClick = () => {
-    this.buttonClickGood()
-    this.buttonClickNeutral()
-    this.buttonClickBad()
+    if ( targetName === 'Good') {
+      this.buttonClickGood()
+    }
+   else if ( targetName === 'Neutral') {
+         this.buttonClickNeutral()
+    }
+    else if ( targetName === 'Bad') {
+          this.buttonClickBad()
+    }   
    }
 
-  // buttonClick = (index) => {
-  //    this.setState(preClick => ({
-  //     good: index,
-  //     neutral: index,
-  //     bad: index,
-  //   }))
-  // }
-
-
-  // buttonOnClick = () => {
-  //   this.setState({
-  //     good: this.buttonClickGood,
-  //     neutral: this.buttonClickNeutral,
-  //     bad: this.buttonClickBad,
-  //   })
+  // Notification = () => {
+  //   if (this.buttonClick) {
+  //     return (
+  //       <Statistics
+  //       good={good}
+  //       neutral={neutral}
+  //       bad={bad}
+  //       total={countTotalFeedback}
+  //       positivePercentage={countPositiveFeedbackPercentage} />) 
+  //   } else {
+  //     return (
+  //       <Notification message="There is no feedback"></Notification>
+  //     )
+  //   }
   // }
 
   render() {
@@ -90,25 +85,46 @@ class App extends Component {
   ></div> */}
      
 
-      <Section title=""/>
-      
-      {/* <FeedbackOptions
-        buttonGood={this.buttonClickGood}
-        buttonNeutral={this.buttonClickNeutral}
-        buttonBad={this.buttonClickBad} /> */}
-        
-   <FeedbackOptions
-        options={ buttonJson}
+      <Section title="Please leavel feedback">
+           <FeedbackOptions
+        options={buttonJson}
         onLeaveFeedback={this.buttonClick} /> 
-     
-      
-      <Statistics
+      </Section>
+{/*       
+      <Section title="Statistics">
+        {this.buttonClick
+          ? (
+          <Statistics
         good={good}
         neutral={neutral}
         bad={bad}
         total={countTotalFeedback}
-        positivePercentage={countPositiveFeedbackPercentage}
-      />
+        positivePercentage={countPositiveFeedbackPercentage} />)
+          : (
+            <Notification message="There is no feedback"/>)} */}
+        
+      <Section title="Statistics">
+        {!this.buttonClick
+          ? (<Notification message="There is no feedback"/>
+          )
+          : (<Statistics
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        total={countTotalFeedback}
+        positivePercentage={countPositiveFeedbackPercentage} />
+            )}
+      
+        {/* <Statistics
+        good={good}
+        neutral={neutral}
+        bad={bad}
+        total={countTotalFeedback}
+          positivePercentage={countPositiveFeedbackPercentage} /> */}
+        
+      </Section>
+      
+    
     </section>
     
   }
