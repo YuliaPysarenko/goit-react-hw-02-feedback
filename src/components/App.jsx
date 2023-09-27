@@ -45,24 +45,8 @@ class App extends Component {
     else if ( targetName === 'Bad') {
           this.buttonClickBad()
     }   
-   }
-
-  // Notification = () => {
-  //   if (this.buttonClick) {
-  //     return (
-  //       <Statistics
-  //       good={good}
-  //       neutral={neutral}
-  //       bad={bad}
-  //       total={countTotalFeedback}
-  //       positivePercentage={countPositiveFeedbackPercentage} />) 
-  //   } else {
-  //     return (
-  //       <Notification message="There is no feedback"></Notification>
-  //     )
-  //   }
-  // }
-
+  }
+  
   render() {
     const { good } = this.state;
     const { neutral } = this.state;
@@ -90,21 +74,9 @@ class App extends Component {
         options={buttonJson}
         onLeaveFeedback={this.buttonClick} /> 
       </Section>
-{/*       
+       
       <Section title="Statistics">
-        {this.buttonClick
-          ? (
-          <Statistics
-        good={good}
-        neutral={neutral}
-        bad={bad}
-        total={countTotalFeedback}
-        positivePercentage={countPositiveFeedbackPercentage} />)
-          : (
-            <Notification message="There is no feedback"/>)} */}
-        
-      <Section title="Statistics">
-        {!this.buttonClick
+        {this.state.good === 0 && this.state.bad === 0 && this.state.neutral === 0
           ? (
             <Notification message="There is no feedback" />
           )
@@ -117,8 +89,6 @@ class App extends Component {
             )}
         
       </Section>
-      
-    
     </section>
     
   }
