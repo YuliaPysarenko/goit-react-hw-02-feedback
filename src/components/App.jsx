@@ -4,6 +4,7 @@ import Statistics from "./Statistics";
 import FeedbackOptions from "./FeedbackOptions";
 import Section from "./Section";
 import Notification from "./Notification";
+import css from './App.module.css'
 
 import buttonJson from "../json/button.json"
 
@@ -56,7 +57,7 @@ class App extends Component {
     const countTotalFeedback = good + neutral + bad;    
     const countPositiveFeedbackPercentage = Math.round(good / countTotalFeedback * 100);
     
-    return <section>
+    return <section className={css.section}>
          {/* <div
     style={{
       height: '100vh',
