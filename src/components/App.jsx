@@ -15,47 +15,56 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   }
+
+  	constTotalFeedback = () => {
+		const { good, neutral, bad } = this.state;
+		const result = good + neutral + bad;
+		return result;
+	};
+
+	countPositiveFeedbackPercentage = () => {
+		const result = this.countTotalFeedback();
+		const { good } = this.state;
+		const percentage = (good * 100) / result;
+		return Math.round(percentage);
+  };
   
-  buttonClickGood = () => {
-    this.setState(preClick => ({
-      good: preClick.good + 1,
-    }))
-  }
+  //   buttonClickGood = () => {
+  //   this.setState(preClick => ({
+  //     good: preClick.good + 1,
+  //   }))
+  // }
 
-  buttonClickNeutral = () => {
-    this.setState(preClick => ({
-      neutral: preClick.neutral + 1,
-    }))
-  }
-
-  buttonClickBad = () => {
-    this.setState(preClick => ({
-      bad: preClick.bad + 1,
-    }))
-  }
-
-  buttonClick = (e) => {
-    const targetName = e.target.name
-
-    if ( targetName === 'Good') {
-      this.buttonClickGood()
+	buttonClick = (e) => {
+    const name = e.target.name;
+    // if (name === 'Good' || name === 'Neutral'  || name === 'Bad') {
+        if (name === name) {
+      	this.setState(prevState => ({
+			[name]: prevState[name] + 1,
+		}));
     }
-   else if ( targetName === 'Neutral') {
-         this.buttonClickNeutral()
-    }
-    else if ( targetName === 'Bad') {
-          this.buttonClickBad()
-    }   
-  }
+	};
+
   
+  //  buttonClick = (e) => {
+  //   const targetName = e.target.name
+
+  //   if ( targetName === 'Good') {
+  //     this.buttonClickGood()
+  //   }
+  //  else if ( targetName === 'Neutral') {
+  //        this.buttonClickNeutral()
+  //   }
+  //   else if ( targetName === 'Bad') {
+  //         this.buttonClickBad()
+  //   }   
+  // }
+
   render() {
-    const { good } = this.state;
-    const { neutral } = this.state;
-    const { bad } = this.state;
-  
+    const { good, neutral, bad} = this.state;    
+    const totalFeedback = this.constTotalFeedback;    
+    const positiveFeedback = this.countPositiveFeedbackPercentage;
     
-    const countTotalFeedback = good + neutral + bad;    
-    const countPositiveFeedbackPercentage = Math.round(good / countTotalFeedback * 100);
     
     return <section className={css.section}>
          {/* <div
@@ -77,7 +86,7 @@ class App extends Component {
       </Section>
        
       <Section title="Statistics">
-        {this.state.good === 0 && this.state.bad === 0 && this.state.neutral === 0
+        {totalFeedback === 0
           ? (
             <Notification message="There is no feedback" />
           )
@@ -85,8 +94,8 @@ class App extends Component {
         good={good}
         neutral={neutral}
         bad={bad}
-        total={countTotalFeedback}
-        positivePercentage={countPositiveFeedbackPercentage} />
+        total={totalFeedback}
+        positivePercentage={positiveFeedback} />
             )}
         
       </Section>
