@@ -35,14 +35,23 @@ class App extends Component {
   //   }))
   // }
 
-	buttonClick = (e) => {
+	// buttonClick = (e) => {
+  //   const name = e.target.name;
+  //       // if (name === name) {
+  //     	this.setState(prevState => ({
+	// 		[name]: prevState[name] + 1,
+	// 	}));
+    
+	// };
+
+  	buttonClick = (e) => {
     const name = e.target.name;
     // if (name === 'Good' || name === 'Neutral'  || name === 'Bad') {
-        if (name === name) {
+        // if (name === name) {
       	this.setState(prevState => ({
 			[name]: prevState[name] + 1,
 		}));
-    }
+    // }
 	};
 
   
@@ -64,7 +73,7 @@ class App extends Component {
     const { good, neutral, bad} = this.state;    
     const totalFeedback = this.constTotalFeedback;    
     const positiveFeedback = this.countPositiveFeedbackPercentage;
-    
+    // const objKey = Object.keys(this.state);
     
     return <section className={css.section}>
          {/* <div
@@ -80,17 +89,15 @@ class App extends Component {
      
 
       <Section title="Please leavel feedback">
-           <FeedbackOptions
+        <FeedbackOptions
         options={buttonJson}
         onLeaveFeedback={this.buttonClick} /> 
       </Section>
        
       <Section title="Statistics">
-        {totalFeedback === 0
-          ? (
+        {totalFeedback === 0 ? (
             <Notification message="There is no feedback" />
-          )
-          : (<Statistics
+        ) : (<Statistics     
         good={good}
         neutral={neutral}
         bad={bad}
