@@ -71,8 +71,8 @@ class App extends Component {
 
   render() {
     const { good, neutral, bad} = this.state;    
-    const totalFeedback = this.constTotalFeedback;    
-    const positiveFeedback = this.countPositiveFeedbackPercentage;
+    const totalFeedback = this.constTotalFeedback();    
+    const positiveFeedback = this.countPositiveFeedbackPercentage();
     // const objKey = Object.keys(this.state);
     
     return <section className={css.section}>
