@@ -6,22 +6,12 @@ import Section from "./Section";
 import Notification from "./Notification";
 import css from './App.module.css'
 
-// import buttonJson from "../json/button.json"
-
-
 class App extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   }
-
-//    options = [
-//   { "id": 1, "name": "Good" },
-//   { "id": 2, "name": "Neutral" },
-//   { "id": 3, "name": "Bad" }
-// ]
-
 
   	constTotalFeedback = () => {
 		const { good, neutral, bad } = this.state;
@@ -52,18 +42,7 @@ class App extends Component {
      const objKey = Object.keys(this.state);
     
     return <section className={css.section}>
-         {/* <div
-    style={{
-      height: '100vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontSize: 40,
-      color: '#010101'
-    }}
-  ></div> */}
-     
-
+  
       <Section title="Please leavel feedback">
         <FeedbackOptions
         options={objKey}
