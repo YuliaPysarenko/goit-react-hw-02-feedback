@@ -6,7 +6,7 @@ import Section from "./Section";
 import Notification from "./Notification";
 import css from './App.module.css'
 
-import buttonJson from "../json/button.json"
+// import buttonJson from "../json/button.json"
 
 
 class App extends Component {
@@ -15,6 +15,13 @@ class App extends Component {
     neutral: 0,
     bad: 0,
   }
+
+//    options = [
+//   { "id": 1, "name": "Good" },
+//   { "id": 2, "name": "Neutral" },
+//   { "id": 3, "name": "Bad" }
+// ]
+
 
   	constTotalFeedback = () => {
 		const { good, neutral, bad } = this.state;
@@ -29,51 +36,20 @@ class App extends Component {
 		return Math.round(percentage);
   };
   
-  //   buttonClickGood = () => {
-  //   this.setState(preClick => ({
-  //     good: preClick.good + 1,
-  //   }))
-  // }
-
-	// buttonClick = (e) => {
-  //   const name = e.target.name;
-  //       // if (name === name) {
-  //     	this.setState(prevState => ({
-	// 		[name]: prevState[name] + 1,
-	// 	}));
-    
-	// };
 
   	buttonClick = (e) => {
     const name = e.target.name;
-    // if (name === 'Good' || name === 'Neutral'  || name === 'Bad') {
-        // if (name === name) {
       	this.setState(prevState => ({
 			[name]: prevState[name] + 1,
 		}));
-    // }
+ 
 	};
-
-  
-  //  buttonClick = (e) => {
-  //   const targetName = e.target.name
-
-  //   if ( targetName === 'Good') {
-  //     this.buttonClickGood()
-  //   }
-  //  else if ( targetName === 'Neutral') {
-  //        this.buttonClickNeutral()
-  //   }
-  //   else if ( targetName === 'Bad') {
-  //         this.buttonClickBad()
-  //   }   
-  // }
 
   render() {
     const { good, neutral, bad} = this.state;    
     const totalFeedback = this.constTotalFeedback();    
     const positiveFeedback = this.countPositiveFeedbackPercentage();
-    // const objKey = Object.keys(this.state);
+     const objKey = Object.keys(this.state);
     
     return <section className={css.section}>
          {/* <div
@@ -90,7 +66,7 @@ class App extends Component {
 
       <Section title="Please leavel feedback">
         <FeedbackOptions
-        options={buttonJson}
+        options={objKey}
         onLeaveFeedback={this.buttonClick} /> 
       </Section>
        
