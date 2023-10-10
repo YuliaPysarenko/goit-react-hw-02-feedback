@@ -41,18 +41,16 @@ class App extends Component {
     const positiveFeedback = this.countPositiveFeedbackPercentage();
      const objKey = Object.keys(this.state);
     
-    return <section className={css.section}>
-  
-      <Section title="Please leavel feedback">
+    return (<div className={css.section}>
+      <Section  title="Please leavel feedback">
         <FeedbackOptions
         options={objKey}
         onLeaveFeedback={this.buttonClick} /> 
       </Section>
        
       <Section title="Statistics">
-        {totalFeedback  === 0 ? (
-            <Notification message="There is no feedback" />
-        ) : (<Statistics     
+        {totalFeedback === 0 ? (<Notification message="There is no feedback" />)
+          : (<Statistics     
         good={good}
         neutral={neutral}
         bad={bad}
@@ -60,8 +58,8 @@ class App extends Component {
         positivePercentage={positiveFeedback} />
             )}
         
-      </Section>
-    </section>
+      </Section></div>) 
+   
     
   }
 }
